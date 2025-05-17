@@ -45,8 +45,8 @@
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/universitas/eduzair.git
-cd project-elearning
+git clone https://github.com/fadelakbars/Eduzair.git
+cd Eduzair
 ```
 
 ### 2. Install Dependencies
@@ -86,3 +86,5 @@ npm run dev
 2. Login dengan:
    - Email: `admin@univ.ac.id`
    - Password: `password123`
+
+test collab
