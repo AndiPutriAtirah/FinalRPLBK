@@ -10,5 +10,10 @@ class CreateMapel extends CreateRecord
 {
     protected static string $resource = MapelResource::class;
 
-    
+    protected static ?string $title = 'Tambah Mata Pelajaran'; 
+
+    protected function getRedirectUrl(): string
+    {
+        return route('filament.admin.resources.users.index');
+    }
 }

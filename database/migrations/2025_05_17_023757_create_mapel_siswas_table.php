@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('mapel_siswas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mapel_id')->constrained('mapel,ids');
-            $table->foreignId('siswa_id')->constrained('users,ids');
+            $table->foreignId('mapel_id')->constrained('mapels'); // Pastikan relasi ke mapels.id
+            $table->foreignId('siswa_id')->constrained('users'); // Pastikan relasi ke users.id
             $table->timestamps();
         });
 

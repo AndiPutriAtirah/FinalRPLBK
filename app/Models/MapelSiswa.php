@@ -34,13 +34,13 @@ class MapelSiswa extends Model
         ];
     }
 
-    public function mapel(): BelongsTo
+    public function mapel()
     {
-        return $this->belongsTo(Mapel,id::class);
+        return $this->belongsTo(Mapel::class, 'mapel_id');
     }
 
-    public function siswa(): BelongsTo
+    public function siswa()
     {
-        return $this->belongsTo(Users,id::class);
+        return $this->belongsTo(User::class, 'siswa_id');
     }
 }

@@ -10,6 +10,8 @@ class ListMapels extends ListRecords
 {
     protected static string $resource = MapelResource::class;
 
+    protected static ?string $title = 'Daftar Mata Pelajaran'; 
+
     protected function getHeaderActions(): array
     {
         return [

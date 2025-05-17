@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MapelResource\Pages;
 use App\Filament\Resources\MapelResource\RelationManagers;
 use App\Models\Mapel;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,6 +19,8 @@ class MapelResource extends Resource
     protected static ?string $model = Mapel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationLabel = 'Mata Pelajaran';
 
     public static function form(Form $form): Form
     {
@@ -34,7 +37,10 @@ class MapelResource extends Resource
                     ->required()
                     ->relationship('guru', 'name')
                     ->searchable()
-                //
+                     ->options(function () {
+                        // Pilih guru yang memiliki role 'guru'
+                        return User::role('guru')->pluck('name', 'id');
+                    }),
             ]);
     }
 
@@ -42,7 +48,6 @@ class MapelResource extends Resource
     {
         return $table
             ->columns([
-                //
                 Tables\Columns\TextColumn::make('nama_mapel')
                     ->label('Nama Mata Pelajaran')  
                     ->sortable()                  
