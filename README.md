@@ -40,3 +40,61 @@
   - Generate thumbnail untuk gambar modul
   - Mengorganisir file per mata kuliah
 ---
+
+## 🚀 Instalasi
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/universitas/eduzair.git
+cd project-elearning
+```
+
+### 2. Install Dependencies
+```bash
+composer install
+```
+
+### 3. Konfigurasi Environment
+```bash
+cp .env.example .env
+nano .env  # Sesuaikan konfigurasi database
+```
+
+### 4. Setup Aplikasi
+```bash
+php artisan key:generate
+php artisan storage:link
+php artisan optimize
+```
+
+### 5. Database Migration
+```bash
+php artisan migrate --seed
+```
+
+### 6. Install Package Tambahan
+```bash
+# Spatie Media Library
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+php artisan migrate
+
+# Filament Admin
+php artisan filament:install --scaffold
+
+# Spatie Permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
+## 🏃 Menjalankan Aplikasi
+
+**Development Mode:**
+```bash
+php artisan serve
+npm run dev
+```
+
+## 🔍 Verifikasi Instalasi
+1. Akses `http://localhost:8000`
+2. Login dengan:
+   - Email: `admin@univ.ac.id`
+   - Password: `password123`
