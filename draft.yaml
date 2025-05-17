@@ -1,0 +1,39 @@
+
+models:
+  Mapel:
+    nama_mapel: string:255
+    guru_id: foreign:users,id
+
+  MapelSiswa:
+    mapel_id: foreign:mapel,id
+    siswa_id: foreign:users,id
+
+  Materi:
+    mapel_id: foreign:mapel,id
+    judul: string:255
+    deskripsi: text
+    media_url: string:255:nullable
+
+  Tugas:
+    materi_id: foreign:materi,id
+    judul: string:255
+    deskripsi: text
+    deadline: datetime
+
+  PengumpulanTugas:
+    tugas_id: foreign:tugas,id
+    siswa_id: foreign:users,id
+    file_url: string:255
+    nilai: decimal:5,2:nullable
+    komentar: text:nullable
+    status: enum:submitted,dinilai
+
+  NilaiRekap:
+    siswa_id: foreign:users,id
+    mapel_id: foreign:mapel,id
+    nilai_akhir: decimal:5,2
+
+  TranskripNilai:
+    siswa_id: foreign:users,id
+    total_nilai: decimal:5,2
+    keterangan: string:100:nullable

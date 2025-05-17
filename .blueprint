@@ -1,0 +1,30 @@
+created:
+    - database/factories/MapelFactory.php
+    - database/factories/MapelSiswaFactory.php
+    - database/factories/MateriFactory.php
+    - database/factories/TugasFactory.php
+    - database/factories/PengumpulanTugasFactory.php
+    - database/factories/NilaiRekapFactory.php
+    - database/factories/TranskripNilaiFactory.php
+    - database/migrations/2025_05_17_023756_create_mapels_table.php
+    - database/migrations/2025_05_17_023757_create_mapel_siswas_table.php
+    - database/migrations/2025_05_17_023758_create_materis_table.php
+    - database/migrations/2025_05_17_023759_create_tugas_table.php
+    - database/migrations/2025_05_17_023800_create_pengumpulan_tugas_table.php
+    - database/migrations/2025_05_17_023801_create_nilai_rekaps_table.php
+    - database/migrations/2025_05_17_023802_create_transkrip_nilais_table.php
+    - app/Models/Mapel.php
+    - app/Models/MapelSiswa.php
+    - app/Models/Materi.php
+    - app/Models/Tugas.php
+    - app/Models/PengumpulanTugas.php
+    - app/Models/NilaiRekap.php
+    - app/Models/TranskripNilai.php
+models:
+    Mapel: { nama_mapel: 'string:255', guru_id: 'foreign:users,id' }
+    MapelSiswa: { mapel_id: 'foreign:mapel,id', siswa_id: 'foreign:users,id' }
+    Materi: { mapel_id: 'foreign:mapel,id', judul: 'string:255', deskripsi: text, media_url: 'string:255:nullable' }
+    Tugas: { materi_id: 'foreign:materi,id', judul: 'string:255', deskripsi: text, deadline: datetime }
+    PengumpulanTugas: { tugas_id: 'foreign:tugas,id', siswa_id: 'foreign:users,id', file_url: 'string:255', nilai: 'decimal:5,2:nullable', komentar: 'text:nullable', status: 'enum:submitted,dinilai' }
+    NilaiRekap: { siswa_id: 'foreign:users,id', mapel_id: 'foreign:mapel,id', nilai_akhir: 'decimal:5,2' }
+    TranskripNilai: { siswa_id: 'foreign:users,id', total_nilai: 'decimal:5,2', keterangan: 'string:100:nullable' }
