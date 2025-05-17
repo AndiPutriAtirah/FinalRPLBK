@@ -14,6 +14,6 @@ class CreateMapel extends CreateRecord
 
     protected function getRedirectUrl(): string
     {
-        return route('filament.admin.resources.users.index');
+        return route('filament.admin.resources.mapels.index');
     }
 }

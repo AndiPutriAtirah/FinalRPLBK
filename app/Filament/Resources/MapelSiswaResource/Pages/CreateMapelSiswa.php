@@ -12,4 +12,8 @@ class CreateMapelSiswa extends CreateRecord
 
     protected static ?string $title = 'Mapel Siswa'; 
 
+    protected function getRedirectUrl(): string
+    {
+        return route('filament.admin.resources.mapel-siswas.index');
+    }
 }

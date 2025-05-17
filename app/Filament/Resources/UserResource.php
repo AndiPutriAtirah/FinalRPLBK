@@ -57,7 +57,7 @@ class UserResource extends Resource
                     Tables\Columns\TextColumn::make('role.name')
                         ->label('Tipe User')
                         ->getStateUsing(fn (User $record) => $record->roles->pluck('name')->join(', '))
-                        ->sortable()
+                        // ->sortable()
                         ->searchable(),
                     Tables\Columns\TextColumn::make('name')
                         ->label('Nama')

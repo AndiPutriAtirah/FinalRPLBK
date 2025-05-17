@@ -14,7 +14,7 @@ class EditMapel extends EditRecord
 
     protected function getRedirectUrl(): string
     {
-        return route('filament.admin.resources.users.index');
+        return route('filament.admin.resources.mapels.index');
     }
 
     protected function getHeaderActions(): array

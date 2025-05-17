@@ -12,6 +12,11 @@ class EditMapelSiswa extends EditRecord
 
     protected static ?string $title = 'Edit Mapel Siswa'; 
 
+    protected function getRedirectUrl(): string
+    {
+        return route('filament.admin.resources.mapel-siswas.index');
+    }
+
     protected function getHeaderActions(): array
     {
         return [

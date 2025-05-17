@@ -63,26 +63,14 @@ nano .env  # Sesuaikan konfigurasi database
 ### 4. Setup Aplikasi
 ```bash
 php artisan key:generate
-php artisan storage:link
-php artisan optimize
+php artisan make:filament-user
+php artisan shield:super-admin --user=1 --panel=admin
+php artisan shield:generate --all --ignore-existing-policies --panel=admin
 ```
 
 ### 5. Database Migration
 ```bash
 php artisan migrate --seed
-```
-
-### 6. Install Package Tambahan
-```bash
-# Spatie Media Library
-php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
-php artisan migrate
-
-# Filament Admin
-php artisan filament:install --scaffold
-
-# Spatie Permission
-php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 ```
 
 ## 🏃 Menjalankan Aplikasi

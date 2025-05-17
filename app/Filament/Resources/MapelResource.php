@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class MapelResource extends Resource
 {
     protected static ?string $model = Mapel::class;
+    
+    protected static ?string $navigationGroup = 'Guru';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -59,7 +61,18 @@ class MapelResource extends Resource
                     ->searchable(),              
                 ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('guru_id')
+                    ->label('Guru')
+                    ->options(function () {
+                        return User::role('Guru')->pluck('name', 'id');
+                    })
+                    ->query(function ($query) {
+                        if (auth()->user()->hasRole('super_admin')) {
+                            return $query;
+                        }else {
+                            return $query->where('guru_id', auth()->id());
+                        }
+                    }), 
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

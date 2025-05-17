@@ -19,9 +19,11 @@ class MapelSiswaResource extends Resource
 {
     protected static ?string $model = MapelSiswa::class;
 
+    protected static ?string $navigationGroup = 'Siswa';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Mapel Siswa';
+    protected static ?string $navigationLabel = 'Mata Pelajaran';
 
     public static function form(Form $form): Form
     {
@@ -66,7 +68,7 @@ class MapelSiswaResource extends Resource
                         return User::role('siswa')->pluck('name', 'id');
                     })
                     ->query(function ($query) {
-                        if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('guru')) {
+                        if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('Guru')) {
                             return $query;
                         }else {
                             return $query->where('siswa_id', auth()->id());
