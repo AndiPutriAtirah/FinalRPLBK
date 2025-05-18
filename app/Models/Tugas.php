@@ -38,6 +38,6 @@ class Tugas extends Model
 
     public function materi(): BelongsTo
     {
-        return $this->belongsTo(Materi,id::class);
+        return $this->belongsTo(Materi::class, 'materi_id');
     }
 }

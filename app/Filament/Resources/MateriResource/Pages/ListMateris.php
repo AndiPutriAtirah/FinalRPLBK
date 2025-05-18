@@ -10,6 +10,8 @@ class ListMateris extends ListRecords
 {
     protected static string $resource = MateriResource::class;
 
+    protected static ?string $title = 'Daftar Materi Pelajaran'; 
+
     protected function getHeaderActions(): array
     {
         return [

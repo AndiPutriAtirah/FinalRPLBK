@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materi_id')->constrained('materi,ids');
+            $table->foreignId('materi_id')->constrained('materis');
             $table->string('judul', 255);
             $table->text('deskripsi');
             $table->dateTime('deadline');

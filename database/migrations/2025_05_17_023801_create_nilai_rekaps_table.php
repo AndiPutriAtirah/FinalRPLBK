@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('nilai_rekaps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('siswa_id')->constrained('users,ids');
-            $table->foreignId('mapel_id')->constrained('mapel,ids');
+            $table->foreignId('siswa_id')->constrained('users');
+            $table->foreignId('mapel_id')->constrained('mapels');
             $table->decimal('nilai_akhir', 5, 2);
             $table->timestamps();
         });

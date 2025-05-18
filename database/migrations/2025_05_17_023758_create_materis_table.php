@@ -15,10 +15,10 @@ return new class extends Migration
 
         Schema::create('materis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mapel_id')->constrained('mapel,ids');
+            $table->foreignId('mapel_id')->constrained('mapels');
             $table->string('judul', 255);
             $table->text('deskripsi');
-            $table->string('media_url', 255);
+            $table->string('media_url', 255)->nullable();
             $table->timestamps();
         });
 

@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('pengumpulan_tugas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tugas_id')->constrained('tugas,ids');
-            $table->foreignId('siswa_id')->constrained('users,ids');
+            $table->foreignId('tugas_id')->constrained('tugas');
+            $table->foreignId('siswa_id')->constrained('users');
             $table->string('file_url', 255);
             $table->decimal('nilai', 5, 2);
             $table->text('komentar')->nullable();

@@ -37,5 +37,10 @@ class Mapel extends Model
     {
         return $this->belongsTo(User::class, 'guru_id');
     }
+
+    public function mapelSiswas()
+    {
+        return $this->hasMany(MapelSiswa::class, 'mapel_id');
+    }
     
 }

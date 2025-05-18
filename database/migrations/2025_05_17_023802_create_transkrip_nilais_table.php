@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('transkrip_nilais', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('siswa_id')->constrained('users,ids');
+            $table->foreignId('siswa_id')->constrained('users');
             $table->decimal('total_nilai', 5, 2);
             $table->string('keterangan', 100);
             $table->timestamps();

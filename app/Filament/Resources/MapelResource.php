@@ -55,10 +55,10 @@ class MapelResource extends Resource
                     ->sortable()                  
                     ->searchable(),             
 
-                // Tables\Columns\TextColumn::make('guru.name')
-                //     ->label('Guru Pengajar')    
-                //     ->sortable()               
-                //     ->searchable(),              
+                Tables\Columns\TextColumn::make('guru.name')
+                    ->label('Guru Pengajar')    
+                    ->sortable()               
+                    ->searchable(),              
                 ])
             ->filters([
                 Tables\Filters\SelectFilter::make('guru_id')

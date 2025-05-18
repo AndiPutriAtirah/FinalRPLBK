@@ -44,4 +44,9 @@ class Materi extends Model
     {
         return $this->belongsTo(User::class, 'guru_id');
     }
+
+    public function tugasSiswas()
+    {
+        return $this->hasMany(Materi::class, 'materi_id');
+    }
 }

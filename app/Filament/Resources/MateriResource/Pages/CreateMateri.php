@@ -9,4 +9,11 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateMateri extends CreateRecord
 {
     protected static string $resource = MateriResource::class;
+
+    protected static ?string $title = 'Tambah Materi Baru'; 
+
+    protected function getRedirectUrl(): string
+    {
+        return route('filament.admin.resources.materis.index');
+    }
 }

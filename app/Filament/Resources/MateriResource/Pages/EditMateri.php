@@ -10,6 +10,13 @@ class EditMateri extends EditRecord
 {
     protected static string $resource = MateriResource::class;
 
+    protected static ?string $title = 'Edit Materi Pelajaran'; 
+
+    protected function getRedirectUrl(): string
+    {
+        return route('filament.admin.resources.materis.index');
+    }
+
     protected function getHeaderActions(): array
     {
         return [
