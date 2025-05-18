@@ -19,11 +19,11 @@ class MapelSiswaResource extends Resource
 {
     protected static ?string $model = MapelSiswa::class;
 
-    protected static ?string $navigationGroup = 'Siswa';
+    // protected static ?string $navigationGroup = 'Dashboard Siswa';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Mata Pelajaran';
+    protected static ?string $navigationLabel = 'Mapel & Siswa';
 
     public static function form(Form $form): Form
     {
@@ -34,7 +34,6 @@ class MapelSiswaResource extends Resource
                     ->required()
                     ->relationship('mapel', 'nama_mapel') 
                     ->searchable(),
-
 
                 Forms\Components\Select::make('siswa_id')
                     ->label('Siswa')

@@ -18,7 +18,7 @@ class MapelResource extends Resource
 {
     protected static ?string $model = Mapel::class;
     
-    protected static ?string $navigationGroup = 'Guru';
+    // protected static ?string $navigationGroup = 'Dashboard Guru';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -55,10 +55,10 @@ class MapelResource extends Resource
                     ->sortable()                  
                     ->searchable(),             
 
-                Tables\Columns\TextColumn::make('guru.name')
-                    ->label('Guru Pengajar')    
-                    ->sortable()               
-                    ->searchable(),              
+                // Tables\Columns\TextColumn::make('guru.name')
+                //     ->label('Guru Pengajar')    
+                //     ->sortable()               
+                //     ->searchable(),              
                 ])
             ->filters([
                 Tables\Filters\SelectFilter::make('guru_id')

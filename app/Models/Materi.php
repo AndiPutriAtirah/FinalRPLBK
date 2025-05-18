@@ -37,6 +37,11 @@ class Materi extends Model
 
     public function mapel(): BelongsTo
     {
-        return $this->belongsTo(Mapel,id::class);
+        return $this->belongsTo(Mapel::class, 'mapel_id');
+    }
+
+    public function guru(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'guru_id');
     }
 }
