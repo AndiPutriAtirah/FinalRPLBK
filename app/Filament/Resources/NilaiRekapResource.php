@@ -82,15 +82,15 @@ class NilaiRekapResource extends Resource
             if ($user->hasRole('super_admin')) {
                 return $query; 
             } else if ($user->hasRole('Guru')) {
-                // Filter berdasarkan guru lewat relasi mapel
+
                 return $query->whereHas('mapel', function ($q) use ($user) {
                     $q->where('guru_id', $user->id);
                 });
             } else if ($user->hasRole('Siswa')) {
-                // Siswa hanya lihat nilainya sendiri
+
                 return $query->where('siswa_id', $user->id);
             }
-            // default, gak boleh lihat
+
             return $query->whereRaw('0=1');
         }),
 ])

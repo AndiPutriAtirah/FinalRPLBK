@@ -80,8 +80,3 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-## 🔍 Verifikasi Instalasi
-1. Akses `http://localhost:8000`
-2. Login dengan:
-   - Email: `opeartor@gmail.com`
-   - Password: `operator`
