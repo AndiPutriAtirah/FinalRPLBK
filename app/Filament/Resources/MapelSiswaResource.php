@@ -68,12 +68,17 @@ class MapelSiswaResource extends Resource
                         return User::role('siswa')->pluck('name', 'id');
                     })
                     ->query(function ($query) {
-                        if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('Guru')) {
+                        if (auth()->user()->hasRole('super_admin')) {
                             return $query;
+
+                        }else if (auth()->user()->hasRole('Guru')) {
+                            return $query->whereHas('mapel', function ($query) {
+                                $query->where('guru_id', auth()->id()); 
+                            });
                         }else {
                             return $query->where('siswa_id', auth()->id());
                         }
-                    }),       
+                    }), 
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -57,14 +57,14 @@ composer install
 ### 3. Konfigurasi Environment
 ```bash
 cp .env.example .env
-nano .env  # Sesuaikan konfigurasi database
+nano .env  # Sesuaikan konfigurasi database gunakan mysql dan ganti ganti nama database yang dibuat
 ```
 
 ### 4. Setup Aplikasi
 ```bash
 php artisan key:generate
-php artisan make:filament-user
-php artisan shield:super-admin --user=1 --panel=admin
+php artisan make:filament-user # Buat user untuk login ke dashboard filament
+php artisan shield:super-admin --user=1 --panel=admin # Atur role user 1 sebagi superadmin
 php artisan shield:generate --all --ignore-existing-policies --panel=admin
 ```
 
@@ -78,13 +78,12 @@ php artisan migrate --seed
 **Development Mode:**
 ```bash
 php artisan serve
-npm run dev
 ```
 
 ## 🔍 Verifikasi Instalasi
 1. Akses `http://localhost:8000`
 2. Login dengan:
-   - Email: `admin@univ.ac.id`
-   - Password: `password123`
+   - Email: `opeartor@gmail.com`
+   - Password: `operator`
 
-test collab
+test collab 
