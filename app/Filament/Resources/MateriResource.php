@@ -19,7 +19,7 @@ class MateriResource extends Resource
 {
     protected static ?string $model = Materi::class;
 
-    protected static ?string $navigationLabel = 'Materi';
+    protected static ?string $navigationLabel = 'Mata Pelajaran & Materi';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -91,9 +91,7 @@ class MateriResource extends Resource
                 Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

@@ -19,6 +19,8 @@ class PengumpulanTugasResource extends Resource
 {
     protected static ?string $model = PengumpulanTugas::class;
 
+    protected static ?string $navigationLabel = 'Pengumpulan Tugas Siswa';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -90,6 +92,7 @@ class PengumpulanTugasResource extends Resource
 
                 Tables\Columns\TextColumn::make('nilai')
                     ->label('Nilai')
+                    ->formatStateUsing(fn($state) => floor($state) == $state ? (string) intval($state) : number_format($state, 2))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('status')
@@ -125,9 +128,7 @@ class PengumpulanTugasResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

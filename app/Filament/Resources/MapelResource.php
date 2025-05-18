@@ -55,10 +55,10 @@ class MapelResource extends Resource
                     ->sortable()                  
                     ->searchable(),             
 
-                Tables\Columns\TextColumn::make('guru.name')
-                    ->label('Guru Pengajar')    
-                    ->sortable()               
-                    ->searchable(),              
+                // Tables\Columns\TextColumn::make('guru.name')
+                //     ->label('Guru Pengajar')    
+                //     ->sortable()               
+                //     ->searchable(),              
                 ])
             ->filters([
                 Tables\Filters\SelectFilter::make('guru_id')
@@ -78,9 +78,7 @@ class MapelResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

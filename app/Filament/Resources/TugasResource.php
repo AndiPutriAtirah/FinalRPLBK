@@ -19,6 +19,8 @@ class TugasResource extends Resource
 {
     protected static ?string $model = Tugas::class;
 
+    protected static ?string $navigationLabel = 'Penugasan';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -94,9 +96,7 @@ class TugasResource extends Resource
                 Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

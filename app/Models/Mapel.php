@@ -43,4 +43,5 @@ class Mapel extends Model
         return $this->hasMany(MapelSiswa::class, 'mapel_id');
     }
     
+    
 }

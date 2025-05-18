@@ -50,4 +50,32 @@ class PengumpulanTugas extends Model
     {
         return $this->belongsTo(User::class, 'siswa_id');
     }
+
+    // Di Model PengumpulanTugas.php
+    protected static function booted()
+    {
+        static::saved(function ($pengumpulanTugas) {
+            $siswaId = $pengumpulanTugas->siswa_id;
+            $mapelId = $pengumpulanTugas->tugas->materi->mapel_id;
+
+            // Hitung rata-rata nilai untuk siswa dan mapel ini
+            $avgNilai = PengumpulanTugas::whereHas('tugas.materi', function($q) use ($mapelId) {
+                $q->where('mapel_id', $mapelId);
+            })->where('siswa_id', $siswaId)
+            ->whereNotNull('nilai')
+            ->avg('nilai');
+
+            // Simpan atau update ke rekap nilai
+            \App\Models\NilaiRekap::updateOrCreate(
+                [
+                    'siswa_id' => $siswaId,
+                    'mapel_id' => $mapelId,
+                ],
+                [
+                    'nilai_akhir' => $avgNilai,
+                ]
+            );
+        });
+    }
+
 }

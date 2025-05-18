@@ -19,11 +19,9 @@ class MapelSiswaResource extends Resource
 {
     protected static ?string $model = MapelSiswa::class;
 
-    // protected static ?string $navigationGroup = 'Dashboard Siswa';
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Mapel & Siswa';
+    protected static ?string $navigationLabel = 'Enroll Siswa';
 
     public static function form(Form $form): Form
     {
@@ -83,9 +81,7 @@ class MapelSiswaResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
