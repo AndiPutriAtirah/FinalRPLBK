@@ -85,5 +85,3 @@ php artisan serve
 2. Login dengan:
    - Email: `opeartor@gmail.com`
    - Password: `operator`
-
-test collab 

@@ -69,29 +69,25 @@ class TugasResource extends Resource
             ->filters([
                 //
             Tables\Filters\SelectFilter::make('siswa_id')
-                    ->label('Siswa')
-                    ->options(function () {
-                        return User::role('siswa')->pluck('name', 'id');
-                    })
-                    ->query(function ($query) {
-                        $user = auth()->user();
+                ->label('Siswa')
+                ->options(function () {
+                    return User::role('siswa')->pluck('name', 'id');
+                })
+                ->query(function ($query) {
+                    $user = auth()->user();
 
-                        if ($user->hasRole('super_admin')) {
-                            return $query; // super admin lihat semua tugas
-                        }else if ($user->hasRole('Guru')) {
-                            // filter tugas yang materinya punya mapel dengan guru_id yang login
-                            return $query->whereHas('materi.mapel', function ($q) use ($user) {
-                                $q->where('guru_id', $user->id);
-                            });
-                        } else {
-                            // filter tugas yang materinya punya mapel yang diikuti siswa
-                            return $query->whereHas('materi.mapel.mapelSiswas', function ($q) use ($user) {
-                                $q->where('siswa_id', $user->id);
-                            });
-                        }
-
-                      
-                    }), 
+                    if ($user->hasRole('super_admin')) {
+                        return $query; 
+                    }else if ($user->hasRole('Guru')) {
+                        return $query->whereHas('materi.mapel', function ($q) use ($user) {
+                            $q->where('guru_id', $user->id);
+                        });
+                    } else {
+                        return $query->whereHas('materi.mapel.mapelSiswas', function ($q) use ($user) {
+                            $q->where('siswa_id', $user->id);
+                        });
+                    }
+                }), 
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -19,6 +19,7 @@ class PengumpulanTugas extends Model
         'tugas_id',
         'siswa_id',
         'file_url',
+        'isi_tugas_editor',
         'nilai',
         'komentar',
         'status',
@@ -41,11 +42,12 @@ class PengumpulanTugas extends Model
 
     public function tugas(): BelongsTo
     {
-        return $this->belongsTo(Tugas,id::class);
+        return $this->belongsTo(Tugas::class, 'tugas_id'); // Benerin key foreignnya
     }
+
 
     public function siswa(): BelongsTo
     {
-        return $this->belongsTo(Users,id::class);
+        return $this->belongsTo(User::class, 'siswa_id');
     }
 }

@@ -9,4 +9,11 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateTugas extends CreateRecord
 {
     protected static string $resource = TugasResource::class;
+
+    protected static ?string $title = 'Buat Tugas Baru'; 
+
+    protected function getRedirectUrl(): string
+    {
+        return route('filament.admin.resources.tugas.index');
+    }
 }

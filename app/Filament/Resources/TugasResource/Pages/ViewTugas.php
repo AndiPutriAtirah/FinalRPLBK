@@ -9,5 +9,6 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewTugas extends ViewRecord
 {
     protected static string $resource = TugasResource::class;
+    
     protected static ?string $title = 'Detail Tugas'; 
 }
