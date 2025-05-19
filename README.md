@@ -36,9 +36,9 @@
 ### Spatie Media Library
 - **Fungsi**: Spatie Media Library adalah package Laravel khusus untuk mengelola file upload
 - **Implementasi**:
-  - Menyimpan PDF materi dan tugas siswa
+  - Menyimpan Foto materi dan tugas siswa
   - Generate thumbnail untuk gambar modul
-  - Mengorganisir file per mata kuliah
+  - Mengorganisir file per pelajaran
 ---
 
 ## 🚀 Instalasi
